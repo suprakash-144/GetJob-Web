@@ -57,7 +57,7 @@ export const useFetchDetails = (endpoint, query, no) => {
       setisloading(true);
       const res = await axios.request(options);
       setdetails(res.data.data);
-      console.log(res.data);
+      // console.log(res.data);
       setisloading(false);
     } catch (error) {
       console.log(error);

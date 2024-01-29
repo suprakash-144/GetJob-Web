@@ -4,37 +4,50 @@ import Card from "./Card";
 import useFetch from "@/config/axiossetup";
 import Details from "./Details";
 import { CiSearch } from "react-icons/ci";
-
+import { useForm } from "react-hook-form";
 const tabs = ["Full-Time", "Part-Time", "Remote", "Contractor"];
+
 const JobsSection = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("react developer");
   const { data, refetch, loading } = useFetch("search", {
-    query: search || "react developer",
+    query: search,
     num_pages: 1,
   });
   const [selected, setselected] = useState(0);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    setSearch(data.search);
+    setselected(0);
+    refetch();
+  };
   return (
-    <div>
-      <div className="d-flex justify-content-between align-items-center px-3 py-2">
-        <div className="d-flex">
+    <div className={`job-sec `}>
+      <div className="d-flex justify-content-center align-items-center px-3 py-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="form w-25 d-flex">
           <input
             type="text"
             placeholder="Search"
-            onChange={(e) => setSearch(e.target.value)}
-            className="form-control"
+            {...register("search")}
+            className="form-control "
           />
-          <CiSearch
-            size="40px"
-            className="btn text-dark btn-outline-light p-1 mx-2"
-            onClick={() => {}}
-          />
-        </div>
+          <button className="btn text-dark btn-outline-dark mx-2">
+            <CiSearch size="25px" />
+          </button>
+        </form>
         <div className="d-flex gap-2">
           {tabs.map((item, key) => (
             <span
-              onClick={() => {}}
+              onClick={() => {
+                onSubmit({ search: item });
+              }}
               key={key}
-              className="badge bg-light text-dark p-3"
+              className="badge bg-light text-dark p-3 search"
             >
               {item}
             </span>

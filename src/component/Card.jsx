@@ -14,7 +14,7 @@ const Card = ({ data, selected, setselected, no }) => {
         }}
         className={`${
           selected == no ? "border border-primary" : "border-warning"
-        } d-flex flex-column px-3 py-2 bg-white w-100 rounded-3`}
+        } d-flex flex-column px-3 py-2 bg-white w-100 rounded-3 search`}
       >
         <div className="d-flex align-items-center justify-context-center border-bottom py-2">
           <Image
@@ -26,7 +26,7 @@ const Card = ({ data, selected, setselected, no }) => {
           />
           <div className="px-3">
             <p className="m-0 fs-5">{data.job_title}</p>
-            <p className="m-0 ">{data.job_publisher}</p>
+            <p className="m-0 fs-6">{data.job_publisher}</p>
           </div>
         </div>
         <div className="d-flex align-items-center justify-content-between px-3 py-1">

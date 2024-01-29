@@ -18,6 +18,13 @@ p {
 .list {
   max-height: 69vh;
 }
-.list::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
+  /* opacity: 0.1; */
+}
+.job-sec {
+  min-height: 90vh;
+}
+.search {
+  cursor: pointer;
 }
