@@ -6,7 +6,6 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import axios from "axios";
 import { initializeApp } from "firebase/app";
 import { toast } from "react-toastify";
 
@@ -70,26 +69,6 @@ export const FirebaseProvider = ({ children }) => {
       return false;
     });
   };
-  const fetchAllJobs = () => {
-    try {
-      const response = axios.get();
-      if (response) {
-        return response;
-      }
-    } catch (error) {
-      toast.error(error);
-    }
-  };
-  const fetchAJobs = (id) => {
-    try {
-      const response = axios.get();
-      if (response) {
-        return response;
-      }
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
 
   return (
     <FirebaseContext.Provider
@@ -98,8 +77,6 @@ export const FirebaseProvider = ({ children }) => {
         signinUser,
         signout,
         State,
-        fetchAJobs,
-        fetchAllJobs,
       }}
     >
       {children}
