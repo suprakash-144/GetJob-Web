@@ -8,7 +8,7 @@ A place to apply for jobs from differnt platforms.
 * [RapidApi](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch)
 
 ## Website
-[Click Here](get-jobs-eight.vercel.app/)
+[Click Here](https://get-jobs-eight.vercel.app/)
 Only 200 request per month can be made for the api.
 
 ## Screenshots
